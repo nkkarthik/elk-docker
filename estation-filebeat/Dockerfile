@@ -12,6 +12,11 @@ FROM debian:jessie
 
 ### install Filebeat
 
+RUN apt-get update -qq \
+ && apt-get install -qqy curl \
+ && apt-get clean
+
+
 ADD ./filebeat /usr/bin/filebeat
 RUN chmod +x /usr/bin/filebeat
 
